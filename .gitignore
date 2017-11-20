@@ -1,0 +1,13 @@
+
+# 忽略 vscode IDE遗留文件
+.vscode/
+
+# 忽略 release_ios 、 release_android 文件夹  
+release_ios/
+release_android/
+
+# 忽略 node_modules 文件夹
+node_modules/
+
+# 忽略 python 相关编译、缓存文件
+.pyc
