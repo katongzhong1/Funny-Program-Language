@@ -69,7 +69,7 @@ export default class TaojiangRule extends Rule {
         if (arr.length == 0) return true;
         // 判断前3是否相等
         if (arr[0] == arr[1] && arr[0] == arr[1]) {
-            return this.huAction(arr.slice(3));
+            return this.huAction(arr.slice(3), kingCount);
         }
         // 判断是否组成顺子
         var sufIndex = arr.indexOf(arr[0]+1);
@@ -77,7 +77,7 @@ export default class TaojiangRule extends Rule {
         if (sufIndex && ssufIndex) {
             arr.splice(sufIndex, 1)
             arr.splice(ssufIndex, 1)
-            return this.huAction(arr);
+            return this.huAction(arr, kingCount);
         }
         return false;
     }
