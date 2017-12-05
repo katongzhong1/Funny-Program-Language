@@ -11,3 +11,5 @@ node_modules/
 
 # 忽略 python 相关编译、缓存文件
 .pyc
+
+# 忽略 cocoscreator工程的相关文件
