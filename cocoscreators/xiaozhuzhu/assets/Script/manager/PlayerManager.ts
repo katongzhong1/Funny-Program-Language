@@ -2,7 +2,7 @@
  * @Author: wusz 
  * @Date: 2017-12-05 13:59:46 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-05 14:53:08
+ * @Last Modified time: 2017-12-06 17:10:06
  */
 
 const {ccclass, property} = cc._decorator;
@@ -14,6 +14,10 @@ export default class PlayerManager extends cc.Component {
     ///=============================================================================
     /// @name Property 属性
     ///=============================================================================
+
+    /*! */
+    @property
+    chiPengCards: Array<Array<Card>> = [];
     
     /*! 牌组 */
     @property
@@ -38,6 +42,11 @@ export default class PlayerManager extends cc.Component {
     ///=============================================================================
     /// @name Export 对外 
     ///=============================================================================
+
+    /*! 返回手牌 */
+    getHandCard() {
+        return [].concat(this.wangCards, this.wanCards, this.suoCards, this.tongCards);
+    }
 
     /*! 返回操作类型(吃\碰\杠) */
 
@@ -93,6 +102,4 @@ export default class PlayerManager extends cc.Component {
     ///=============================================================================
     /// @name Function 功能性
     ///=============================================================================
-
-    
 }

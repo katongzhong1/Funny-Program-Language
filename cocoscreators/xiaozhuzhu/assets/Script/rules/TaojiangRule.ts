@@ -2,17 +2,18 @@
  * @Author: wusz 
  * @Date: 2017-12-05 14:56:24 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-05 18:41:08
+ * @Last Modified time: 2017-12-06 09:54:21
  */
 
-import Rule from "./rule";
+import Rule from "./Rules";
 import Card from "../items/Card";
+import Rules from "./Rules";
 const {ccclass} = cc._decorator;
 
 enum RuleType {Peng=0, Chi, Hu, Gang}
 
 @ccclass
-export default class TaojiangRule extends Rule {
+export default class TaojiangRule extends Rules {
     
     ///=============================================================================
     /// @name Export 对外 

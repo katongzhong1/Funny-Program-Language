@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo.png</key>
+            <key>R_suo.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,410},{49,40}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_1.png</key>
+            <key>R_suo_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,359},{49,40}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_2.png</key>
+            <key>R_suo_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{206,308},{49,40}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_3.png</key>
+            <key>R_suo_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,296},{49,40}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_4.png</key>
+            <key>R_suo_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,296},{49,40}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_5.png</key>
+            <key>R_suo_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{53,296},{49,40}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_6.png</key>
+            <key>R_suo_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,296},{49,40}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_7.png</key>
+            <key>R_suo_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{206,257},{49,40}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_8.png</key>
+            <key>R_suo_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,254},{49,40}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_bamboo_9.png</key>
+            <key>R_suo_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,254},{49,40}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_1.png</key>
+            <key>R_wan_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{53,254},{49,40}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_2.png</key>
+            <key>R_wan_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,254},{49,40}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_3.png</key>
+            <key>R_wan_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,212},{49,40}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_4.png</key>
+            <key>R_wan_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,212},{49,40}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_5.png</key>
+            <key>R_wan_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{53,212},{49,40}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_6.png</key>
+            <key>R_wan_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,212},{49,40}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_7.png</key>
+            <key>R_wan_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{206,206},{49,40}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_8.png</key>
+            <key>R_wan_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,170},{49,40}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_character_9.png</key>
+            <key>R_wan_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,170},{49,40}}</string>
@@ -277,7 +277,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_1.png</key>
+            <key>R_tong_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,170},{49,40}}</string>
@@ -290,7 +290,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_2.png</key>
+            <key>R_tong_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{206,155},{49,40}}</string>
@@ -303,7 +303,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_3.png</key>
+            <key>R_tong_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,128},{49,40}}</string>
@@ -316,7 +316,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_4.png</key>
+            <key>R_tong_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,128},{49,40}}</string>
@@ -329,7 +329,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_5.png</key>
+            <key>R_tong_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{53,128},{49,40}}</string>
@@ -342,7 +342,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_6.png</key>
+            <key>R_tong_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,128},{49,40}}</string>
@@ -355,7 +355,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_7.png</key>
+            <key>R_tong_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{206,104},{49,40}}</string>
@@ -368,7 +368,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_8.png</key>
+            <key>R_tong_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{155,86},{49,40}}</string>
@@ -381,7 +381,7 @@
                 <key>sourceSize</key>
                 <string>{49,40}</string>
             </dict>
-            <key>R_dot_9.png</key>
+            <key>R_tong_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{104,86},{49,40}}</string>

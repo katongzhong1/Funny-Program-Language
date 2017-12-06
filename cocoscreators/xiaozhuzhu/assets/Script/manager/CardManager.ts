@@ -2,7 +2,7 @@
  * @Author: wusz 
  * @Date: 2017-12-05 11:25:05 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-05 18:05:48
+ * @Last Modified time: 2017-12-06 16:27:39
  */
 
 const {ccclass, property} = cc._decorator;
@@ -51,10 +51,10 @@ export default class CardManager extends cc.Component {
     /*! 发牌 */
     public licensing() {
         var arr = new Array();
-        arr.push(this.remain.splice(this.remain.length-14));
-        arr.push(this.remain.splice(this.remain.length-14));
-        arr.push(this.remain.splice(this.remain.length-14));
-        arr.push(this.remain.splice(this.remain.length-14));
+        arr.push(this.remain.splice(this.remain.length-13));
+        arr.push(this.remain.splice(this.remain.length-13));
+        arr.push(this.remain.splice(this.remain.length-13));
+        arr.push(this.remain.splice(this.remain.length-13));
         return arr;
     }
 
@@ -83,7 +83,7 @@ export default class CardManager extends cc.Component {
     protected setInitialCards(total: number) {
         var cards = new Array();
         while(total--) {
-            var card = new Card(total%9+1, total/9);
+            var card = new Card(total%9+1, Math.floor((total-1)/36));
             cards[total] = card;
         }
         return this.shuffle(cards);
@@ -109,6 +109,12 @@ export default class CardManager extends cc.Component {
             random =  (Math.random() * n--) >>> 0; // 无符号右移位运算符向下取整
             [arr[n], arr[random]] = [arr[random], arr[n]] // ES6的结构赋值实现变量互换
         }
+        return arr;
+    }
+
+    /*! 排序 */
+    protected sortCards(arr: Array<Card>) {
+        arr.sort((a, b) => (a.num + a.type*10) - (b.num + b.type*10));
         return arr;
     }
 }

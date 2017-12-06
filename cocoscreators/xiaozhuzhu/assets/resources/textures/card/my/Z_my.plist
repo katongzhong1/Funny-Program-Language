@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo.png</key>
+            <key>M_suo.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,771},{75,113}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_1.png</key>
+            <key>M_suo_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{424,656},{75,113}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_2.png</key>
+            <key>M_suo_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{309,618},{75,113}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_3.png</key>
+            <key>M_suo_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{194,618},{75,113}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_4.png</key>
+            <key>M_suo_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,618},{75,113}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_5.png</key>
+            <key>M_suo_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{424,541},{75,113}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_6.png</key>
+            <key>M_suo_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{309,541},{75,113}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_7.png</key>
+            <key>M_suo_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{194,541},{75,113}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_8.png</key>
+            <key>M_suo_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{79,541},{75,113}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_bamboo_9.png</key>
+            <key>M_suo_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,886},{75,113}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_1.png</key>
+            <key>M_wan_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,771},{75,113}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_2.png</key>
+            <key>M_wan_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,656},{75,113}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_3.png</key>
+            <key>M_wan_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,541},{75,113}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_4.png</key>
+            <key>M_wan_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{347,464},{75,113}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_5.png</key>
+            <key>M_wan_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{232,464},{75,113}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_6.png</key>
+            <key>M_wan_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{117,464},{75,113}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_7.png</key>
+            <key>M_wan_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,464},{75,113}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_8.png</key>
+            <key>M_wan_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{347,387},{75,113}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_character_9.png</key>
+            <key>M_wan_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{232,387},{75,113}}</string>
@@ -277,7 +277,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_1.png</key>
+            <key>M_tong_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,387},{75,113}}</string>
@@ -290,7 +290,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_2.png</key>
+            <key>M_tong_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{347,310},{75,113}}</string>
@@ -303,7 +303,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_3.png</key>
+            <key>M_tong_3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{232,310},{75,113}}</string>
@@ -316,7 +316,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_4.png</key>
+            <key>M_tong_4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{117,310},{75,113}}</string>
@@ -329,7 +329,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_5.png</key>
+            <key>M_tong_5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,310},{75,113}}</string>
@@ -342,7 +342,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_6.png</key>
+            <key>M_tong_6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{347,233},{75,113}}</string>
@@ -355,7 +355,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_7.png</key>
+            <key>M_tong_7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{232,233},{75,113}}</string>
@@ -368,7 +368,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_8.png</key>
+            <key>M_tong_8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{117,233},{75,113}}</string>
@@ -381,7 +381,7 @@
                 <key>sourceSize</key>
                 <string>{75,113}</string>
             </dict>
-            <key>M_dot_9.png</key>
+            <key>M_tong_9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,233},{75,113}}</string>
