@@ -25,15 +25,7 @@ export default class PlayerManager extends cc.Component {
 
     /*! wan牌组 */
     @property
-    wanCards: Array<Card> = [];
-
-    /*! suo牌组 */
-    @property
-    suoCards: Array<Card> = [];
-
-    /*! tong牌组 */
-    @property
-    tongCards: Array<Card> = [];
+    cards: Array<Card> = [];
 
     /*! 王牌 */
     @property
@@ -45,7 +37,20 @@ export default class PlayerManager extends cc.Component {
 
     /*! 返回手牌 */
     getHandCard() {
-        return [].concat(this.wangCards, this.wanCards, this.suoCards, this.tongCards);
+        return [].concat(this.wangCards, this.cards);
+    }
+
+    /*! 加入一张牌, 移除一张牌 */
+    getNewHandCard(deleCard: Card, addCard: Card) {
+        if (this.isKing(deleCard)) this.wangCards.pop();
+        else this.cards.splice(this.cards.indexOf(deleCard));
+
+        if (this.isKing(addCard)) this.wangCards.push(addCard);
+        else this.cards.push(addCard);
+        
+        this.sortCards(this.cards);
+
+        return [].concat(this.wangCards, this.cards);
     }
 
     /*! 返回操作类型(吃\碰\杠) */
@@ -59,7 +64,7 @@ export default class PlayerManager extends cc.Component {
     constructor(arr: Array<Card>, king: Card) {
         super();
         this.king = king;
-        this.sortCards(arr);
+        this.findKingAndSortCards(arr);
     }
 
     ///=============================================================================
@@ -67,36 +72,26 @@ export default class PlayerManager extends cc.Component {
     ///=============================================================================
 
     /*! 排序牌组 */
-    sortCards(arr: Array<Card>) {
+    findKingAndSortCards(arr: Array<Card>) {
         var i = arr.length;
         while (i--) {
             var card = arr[i];
-            // 找到王牌
-            if (card.type == this.king.type && card.num == this.king.num) {
+            if (this.isKing(card)) {
                 this.wangCards.push(card);
-                continue;
-            }
-            // 分组wan\suo\tong
-            switch (card.type) {
-                case 0:
-                    this.wanCards.push(card);
-                    break;
-                case 1:
-                    this.suoCards.push(card);
-                    break;
-                case 2:
-                    this.tongCards.push(card);
-                    break;
+            } else {
+                this.cards.push(card);
             }
         }
-        this.sortArrCards();
+        this.sortCards(this.cards);
     }
 
-    /*! 排序wan\suo\tong */
-    sortArrCards() {
-        this.wanCards.sort((a, b) => a.num - b.num);
-        this.suoCards.sort((a, b) => a.num - b.num);
-        this.tongCards.sort((a, b) => a.num - b.num);        
+    /*! 排序 */
+    protected sortCards(arr: Array<Card>) {
+        arr.sort((a, b) => (a.num + a.type*10) - (b.num + b.type*10));
+    }
+
+    isKing(card: Card) {
+        return card.type == this.king.type && card.num == this.king.num;
     }
 
     ///=============================================================================

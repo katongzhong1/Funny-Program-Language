@@ -31,14 +31,18 @@ cc.Class({
         myPM: PlayerManager,
         /*! */
         card: Card,
+        
+        /*! 我的手牌nodes */
+        myNodes: Array,
     },
 
     onLoad() {
+        this.myNodes = [];
         // 初始化代码
         this.initialCard();
         // 拿牌
         this.takeCard(this.cardM.getCard(), 0);
-    }
+    },
 
     ///=============================================================================
     /// @name Initial 拿牌
@@ -50,7 +54,7 @@ cc.Class({
         if (index == 0) {
             this.myTakeCard(card);
         }
-    }
+    },
 
     /*! 我拿牌更新UI和触发可进行事件 */
     myTakeCard(card: Card) {
@@ -61,8 +65,16 @@ cc.Class({
         item.spriteFrame = this.getSpriteFrame(card, 0);
         this.node.addChild(newNode); 
         // 
-        
-    }
+    },
+
+    myNodesUI(deleCard: Card, addCard: Card) {
+        // let arr = this.myPM.getNewHandCard(deleCard, addCard);
+        // for (let i=0, len=arr.length; i<len; i++) {
+        //     var node = this.myNodes[i];
+        //     var card = arr[i];
+        //     node.getComponent(cc.Sprite).spriteFrame = this.getSpriteFrame(card, 0);
+        // }
+    },
 
     ///=============================================================================
     /// @name Initial 初始化
@@ -78,7 +90,7 @@ cc.Class({
             if (i==0) this.myPM = playerM;
             this.addCardNode(playerM.getHandCard(), i);   
         }
-    }
+    },
 
     /*! 添加子节点 */
     addCardNode(arr: Array<Card>, index: number) {
@@ -92,48 +104,43 @@ cc.Class({
             item.spriteFrame = this.getSpriteFrame(card, index);
             var idx = 0;
             if (index == 0) {
+                this.myNodes.push(newNode);
                 newNode.on(cc.Node.EventType.TOUCH_START, function (event) {
                     if (idx==0) {
-                        idx = event.getID;
+                        idx = event.getID();
                     }
                 }, newNode);
                 //我添加点击事件
                 newNode.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-                    if (idx==event.getID) {
+                    if (idx==event.getID()) {
                         let preL = event.getLocation();
                         newNode.setPosition(position.x, preL.y);
                     }
                 }, newNode);
                 newNode.on(cc.Node.EventType.TOUCH_END, function (event) {
-                    if (idx==event.getID) {
+                    if (idx==event.getID()) {
                         let loc = event.getLocation();
                         if (loc.y-position.y > 200) {
-                            // newNode.setPosition(position);
-                            // let action = cc.fadeOut;
-                            // newNode.runAction(action);
-                        } else {
-                            newNode.setPosition(position);
-                        }
+                            this.myNodesUI(card, this.card);
+                        } 
+                        newNode.setPosition(position);
                         idx = 0;
                     }   
                 }, newNode);
                 newNode.on(cc.Node.EventType.TOUCH_CANCEL, function (event) {
-                    if (idx==event.getID) {
+                    if (idx==event.getID()) {
                         let loc = event.getLocation();
                         if (loc.y-position.y > 200) {
-                            // newNode.setPosition(position);
-                            // let action = cc.fadeOut;
-                            // newNode.runAction(action);
-                        } else {
-                            newNode.setPosition(position);
-                        }
+                            this.myNodesUI(card, this.card);                            
+                        } 
+                        newNode.setPosition(position);
                         idx = 0;
                     } 
                 }, newNode);
             }
             this.node.addChild(newNode); 
         }
-    }
+    },
 
     /*! 计算位置 */
     getPosition(node: cc.Node, n: number, index: number) {
@@ -141,7 +148,7 @@ cc.Class({
         else if (index == 1)  return node.setPosition(1100, 230 + 30*n);
         else if (index == 2)  return node.setPosition(900-38*n, 550);
         return node.setPosition(180, 230 + 30*n);
-    }
+    },
 
     /*! 得到图片资源 */
     getSpriteFrame(card: Card, index: number) {
@@ -150,14 +157,11 @@ cc.Class({
             var sprite = this.myAtlas.getSpriteFrame("M_" + type + "_" +card.num);
             return sprite;
         } else if (index == 1) {
-            var sprite = this.emptyAtlas.getSpriteFrame("e_mj_right");
-            return sprite;
+            return this.emptyAtlas.getSpriteFrame("e_mj_right");
         } else if (index == 2) {
-            var sprite = this.emptyAtlas.getSpriteFrame("e_mj_up");
-            return sprite;
+            return this.emptyAtlas.getSpriteFrame("e_mj_up");
         } else if (index == 3) {
-            var sprite = this.emptyAtlas.getSpriteFrame("e_mj_left");
-            return sprite;
+            return this.emptyAtlas.getSpriteFrame("e_mj_left");
         }
     }
 });
