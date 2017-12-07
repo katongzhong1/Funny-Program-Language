@@ -2,7 +2,7 @@
  * @Author: wusz 
  * @Date: 2017-12-06 10:27:44 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-06 18:34:06
+ * @Last Modified time: 2017-12-07 18:34:12
  */
 
 const {ccclass, property} = cc._decorator;
@@ -29,17 +29,30 @@ cc.Class({
         cardM: CardManager,
         /*! */
         myPM: PlayerManager,
-        /*! */
+        /*! 拿牌 */
         card: Card,
+        /*! 拿牌节点 */
+        cardNode: cc.Node,
         
         /*! 我的手牌nodes */
         myNodes: Array,
+        myCards: Array,
+        canHandle: Boolean,
+
+        /*! */
+        ting: cc.Node,
+        
+        idx: Number
     },
 
     onLoad() {
         this.myNodes = [];
+        this.ting.active = false;
+        this.idx = 0;
         // 初始化代码
         this.initialCard();
+        // 
+        this.initialHolderNode();
         // 拿牌
         this.takeCard(this.cardM.getCard(), 0);
     },
@@ -48,32 +61,76 @@ cc.Class({
     /// @name Initial 拿牌
     ///=============================================================================
 
+    initialHolderNode() {
+        let position = this.cardNode.getPosition();
+        this.cardNode.on(cc.Node.EventType.TOUCH_START, function (event) {
+            if (this.idx==0 && this.canHandle) {
+                this.idx = event.getID();
+            }
+        }, this);
+        //我添加点击事件
+        this.cardNode.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+            if (this.idx==event.getID() && this.canHandle) {
+                let preL = event.getLocation();
+                this.cardNode.setPosition(position.x, preL.y);
+            }
+        }, this);
+        this.cardNode.on(cc.Node.EventType.TOUCH_END, function (event) {
+            if (this.idx==event.getID() && this.canHandle) {
+                let loc = event.getLocation();
+                this.cardNode.setPosition(position);
+                this.cardNode.active = !(loc.y-position.y > 100);
+                this.idx = 0;
+
+                this.takeCard(this.cardM.getCard(), 0);
+            }   
+        }, this);
+        this.cardNode.on(cc.Node.EventType.TOUCH_CANCEL, function (event) {
+            if (this.idx==event.getID() && this.canHandle) {
+                let loc = event.getLocation();
+                this.cardNode.setPosition(position);
+                this.cardNode.active = !(loc.y-position.y > 100);
+                this.idx = 0;
+
+                this.takeCard(this.cardM.getCard(), 0);
+            } 
+        }, this);
+    },
+
+
     /*! 拿牌更新UI */
     takeCard(card:Card, index: number) {
         this.card = card;
         if (index == 0) {
             this.myTakeCard(card);
         }
+        // 判断是否听牌
+        this.ting.active = this.myPM.isHuAction(card);
     },
 
     /*! 我拿牌更新UI和触发可进行事件 */
     myTakeCard(card: Card) {
         // 更新UI
-        var newNode = new cc.Node('sprite 1');
-        newNode.setPosition(150+73*13+10, 100);
-        var item = newNode.addComponent(cc.Sprite);
+        this.canHandle = true;
+        this.cardNode.active = true;
+        let item = this.cardNode.getComponent(cc.Sprite);
         item.spriteFrame = this.getSpriteFrame(card, 0);
-        this.node.addChild(newNode); 
         // 
     },
 
-    myNodesUI(deleCard: Card, addCard: Card) {
-        // let arr = this.myPM.getNewHandCard(deleCard, addCard);
-        // for (let i=0, len=arr.length; i<len; i++) {
-        //     var node = this.myNodes[i];
-        //     var card = arr[i];
-        //     node.getComponent(cc.Sprite).spriteFrame = this.getSpriteFrame(card, 0);
-        // }
+    /*! 更新我的手牌 */
+    myNodesUI(index: number, addCard: Card) {
+        var deleCard = this.myCards[index];
+        this.myCards = this.myPM.getNewHandCard(deleCard, addCard);
+        for (let i=0, len=this.myCards.length; i<len; i++) {
+            var node = this.myNodes[i];
+            var card = this.myCards[i];
+            node.getComponent(cc.Sprite).spriteFrame = this.getSpriteFrame(card, 0);
+        }
+        this.cardNode.active = false;
+        this.canHandle = false;
+        
+        this.takeCard(this.cardM.getCard(), 0);
     },
 
     ///=============================================================================
@@ -88,57 +145,60 @@ cc.Class({
         while (i--) {
             var playerM = new PlayerManager(list[i], this.cardM.king);
             if (i==0) this.myPM = playerM;
+            let cards = playerM.getHandCard();
+            if (i==0) this.myCards = cards;
             this.addCardNode(playerM.getHandCard(), i);   
         }
     },
 
     /*! 添加子节点 */
     addCardNode(arr: Array<Card>, index: number) {
-        var n = arr.length;
-        while (n--) {
-            let card = arr[n];
-            let newNode = new cc.Node('sprite ' + n + index * 10);
-            this.getPosition(newNode, n, index);
+        let n = arr.length, i=0;
+        while (i<n) {
+            let num = i;
+            let card = arr[i];
+            let newNode = new cc.Node('sprite ' + i + index * 10);
+            this.getPosition(newNode, i, index);
             let position = newNode.getPosition();
             let item = newNode.addComponent(cc.Sprite);
             item.spriteFrame = this.getSpriteFrame(card, index);
-            var idx = 0;
             if (index == 0) {
                 this.myNodes.push(newNode);
                 newNode.on(cc.Node.EventType.TOUCH_START, function (event) {
-                    if (idx==0) {
-                        idx = event.getID();
+                    if (this.idx==0 && this.canHandle) {
+                        this.idx = event.getID();
                     }
-                }, newNode);
+                }, this);
                 //我添加点击事件
                 newNode.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-                    if (idx==event.getID()) {
+                    if (this.idx==event.getID() && this.canHandle) {
                         let preL = event.getLocation();
                         newNode.setPosition(position.x, preL.y);
                     }
-                }, newNode);
+                }, this);
                 newNode.on(cc.Node.EventType.TOUCH_END, function (event) {
-                    if (idx==event.getID()) {
+                    if (this.idx==event.getID() && this.canHandle) {
                         let loc = event.getLocation();
                         if (loc.y-position.y > 200) {
-                            this.myNodesUI(card, this.card);
+                            this.myNodesUI(num, this.card);
                         } 
                         newNode.setPosition(position);
-                        idx = 0;
+                        this.idx = 0;
                     }   
-                }, newNode);
+                }, this);
                 newNode.on(cc.Node.EventType.TOUCH_CANCEL, function (event) {
-                    if (idx==event.getID()) {
+                    if (this.idx==event.getID() && this.canHandle) {
                         let loc = event.getLocation();
                         if (loc.y-position.y > 200) {
-                            this.myNodesUI(card, this.card);                            
+                            this.myNodesUI(num, this.card);                            
                         } 
                         newNode.setPosition(position);
-                        idx = 0;
+                        this.idx = 0;
                     } 
-                }, newNode);
+                }, this);
             }
             this.node.addChild(newNode); 
+            i++;
         }
     },
 

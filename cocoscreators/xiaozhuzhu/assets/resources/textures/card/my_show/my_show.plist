@@ -428,9 +428,9 @@
 		<key>format</key>
 		<integer>2</integer>
 		<key>textureFileName</key>
-		<string>my.png</string>
+		<string>my_show.png</string>
 		<key>realTextureFileName</key>
-		<string>my.png</string>
+		<string>my_show.png</string>
 		<key>size</key>
 		<string>{512,512}</string>
 	</dict>

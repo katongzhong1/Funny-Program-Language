@@ -2,11 +2,13 @@
  * @Author: wusz 
  * @Date: 2017-12-05 13:59:46 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-06 17:10:06
+ * @Last Modified time: 2017-12-07 14:20:03
  */
 
 const {ccclass, property} = cc._decorator;
 import Card from "../items/card";
+import TaojiangRule from "../rules/TaojiangRule";
+import Rules from "../rules/Rules";
 
 @ccclass
 export default class PlayerManager extends cc.Component {
@@ -31,19 +33,22 @@ export default class PlayerManager extends cc.Component {
     @property
     king: Card;
 
+    /*! 王牌 */
+    @property
+    rules: TaojiangRule;
     ///=============================================================================
     /// @name Export 对外 
     ///=============================================================================
 
     /*! 返回手牌 */
-    getHandCard() {
+    public getHandCard() {
         return [].concat(this.wangCards, this.cards);
     }
 
     /*! 加入一张牌, 移除一张牌 */
-    getNewHandCard(deleCard: Card, addCard: Card) {
+    public getNewHandCard(deleCard: Card, addCard: Card) {
         if (this.isKing(deleCard)) this.wangCards.pop();
-        else this.cards.splice(this.cards.indexOf(deleCard));
+        else this.cards.splice(this.cards.indexOf(deleCard), 1);
 
         if (this.isKing(addCard)) this.wangCards.push(addCard);
         else this.cards.push(addCard);
@@ -53,8 +58,14 @@ export default class PlayerManager extends cc.Component {
         return [].concat(this.wangCards, this.cards);
     }
 
-    /*! 返回操作类型(吃\碰\杠) */
-
+    /*! 返回操作类型(吃\碰\杠\) */
+    public isHuAction(card) {
+        var temp = [].concat(this.cards);
+        temp.push(card);
+        this.sortCards(temp);
+        var arr = temp.map(a => a.num + a.type*10);
+        return this.rules.isHuAction(arr, this.wangCards.length);
+    }
 
     ///=============================================================================
     /// @name Constructor 构造函数 
@@ -64,6 +75,7 @@ export default class PlayerManager extends cc.Component {
     constructor(arr: Array<Card>, king: Card) {
         super();
         this.king = king;
+        this.rules = new TaojiangRule();
         this.findKingAndSortCards(arr);
     }
 
