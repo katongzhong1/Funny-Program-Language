@@ -1,28 +1,26 @@
 {
-  "appKey": "",
-  "appSecret": "",
-  "encryptJs": true,
   "excludeScenes": [],
   "includeAnySDK": false,
-  "includeSDKBox": false,
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "jailbreakPlatform": false,
-  "md5Cache": false,
-  "mergeStartScene": false,
-  "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
+  "includeSdk": [
+    "anysdk"
+  ],
   "orientation": {
     "landscapeLeft": true,
     "landscapeRight": true,
     "portrait": false,
     "upsideDown": false
   },
-  "packageName": "org.cocos2d.helloworld",
+  "packageName": "com.babykylin.qpgames",
+  "startScene": "7898c3aa-75db-4523-8b22-e60bf7d83784",
+  "title": "SCMJ",
+  "webOrientation": "landscape",
+  "oauthLoginServer": "",
+  "appKey": "",
+  "appSecret": "",
   "privateKey": "",
   "renderMode": "0",
-  "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
-  "title": "majiang",
-  "webOrientation": "auto",
-  "xxteaKey": "6d059d78-1cc7-4d"
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mergeStartScene": false,
+  "optimizeHotUpdate": false
 }

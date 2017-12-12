@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -2172,
-      "y": 143,
-      "width": 1249,
-      "height": 831,
+      "x": 80,
+      "y": 68,
+      "width": 1280,
+      "height": 720,
       "layout": {
         "children": [
           {
@@ -20,7 +20,7 @@
                 ],
                 "height": 300,
                 "type": "panel",
-                "width": 240
+                "width": 267
               },
               {
                 "active": 0,
@@ -29,12 +29,12 @@
                 ],
                 "height": 326,
                 "type": "panel",
-                "width": 240
+                "width": 267
               }
             ],
             "height": 629,
             "type": "dock-v",
-            "width": 240
+            "width": 267
           },
           {
             "children": [
@@ -47,7 +47,7 @@
                     ],
                     "height": 326,
                     "type": "panel",
-                    "width": 516.984375
+                    "width": 197
                   },
                   {
                     "active": 0,
@@ -61,7 +61,7 @@
                 ],
                 "height": 326,
                 "type": "dock-h",
-                "width": 724
+                "width": 404
               },
               {
                 "active": 0,
@@ -71,12 +71,12 @@
                 ],
                 "height": 300,
                 "type": "panel",
-                "width": 724
+                "width": 404
               }
             ],
             "height": 629,
             "type": "dock-v",
-            "width": 724
+            "width": 404
           },
           {
             "active": 0,
@@ -85,7 +85,7 @@
             ],
             "height": 629,
             "type": "panel",
-            "width": 304
+            "width": 597
           }
         ],
         "type": "dock-h"
@@ -99,20 +99,27 @@
         "scene",
         "timeline"
       ]
+    },
+    "window-1512637901506": {
+      "main": false,
+      "url": "packages://store/panel/index.html",
+      "windowType": "simple",
+      "x": 84,
+      "y": 65,
+      "width": 800,
+      "height": 622,
+      "layout": null,
+      "panels": [
+        "store"
+      ]
     }
   },
   "panels": {
-    "sprite-editor": {
-      "x": 470,
-      "y": 154,
-      "width": 500,
-      "height": 522
-    },
-    "builder": {
-      "x": 201,
-      "y": 48,
-      "width": 500,
-      "height": 722
+    "store": {
+      "x": 84,
+      "y": 65,
+      "width": 800,
+      "height": 622
     }
   }
 }
