@@ -35,7 +35,7 @@ function constructRoomFromDb(dbdata){
 		roomInfo.gameMgr = require("./gamemgr_xlch");
 	}
 	else{
-		roomInfo.gameMgr = require("./gamemgr_xzdd");
+		roomInfo.gameMgr = require("./gamemgr_taojiang");
 	}
 	var roomId = roomInfo.id;
 

@@ -234,7 +234,7 @@ cc.Class({
         
         this.node.on('game_holds',function(data){
            self.initMahjongs();
-           self.checkQueYiMen();
+        //    self.checkQueYiMen();
         });
         
         this.node.on('game_begin',function(data){
@@ -257,7 +257,7 @@ cc.Class({
         this.node.on('game_chupai',function(data){
             data = data.detail;
             self.hideChupai();
-            self.checkQueYiMen();
+            // self.checkQueYiMen();
             if(data.last != cc.vv.gameNetMgr.seatIndex){
                 self.initMopai(data.last,null);   
             }
@@ -607,7 +607,7 @@ cc.Class({
             cc.vv.gameNetMgr.curaction = null;
         }
         
-        this.checkQueYiMen();
+        // this.checkQueYiMen();
     },
     
     onMJClicked:function(event){
@@ -883,6 +883,9 @@ cc.Class({
         }
         else if(event.target.name == "btnGuo"){
             cc.vv.net.send("guo");
+        }
+        else if(event.target.name == "btnChi"){
+            cc.vv.net.send("chi");
         }
     },
     

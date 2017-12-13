@@ -1,4 +1,4 @@
-﻿var HALL_IP = "127.0.0.1";
+﻿var HALL_IP = "172.16.42.125";
 var HALL_CLIENT_PORT = 9001;
 var HALL_ROOM_PORT = 9002;
 
@@ -20,7 +20,7 @@ exports.mysql = function(){
 //账号服配置
 exports.account_server = function(){
 	return {
-		CLIENT_PORT:9000,
+		CLIENT_PORT:9007,
 		HALL_IP:HALL_IP,
 		HALL_CLIENT_PORT:HALL_CLIENT_PORT,
 		ACCOUNT_PRI_KEY:ACCOUNT_PRI_KEY,
@@ -64,6 +64,6 @@ exports.game_server = function(){
 		
 		//暴露给客户端的接口
 		CLIENT_IP:HALL_IP,
-		CLIENT_PORT:10000,
+		CLIENT_PORT:10001,
 	};
 };
