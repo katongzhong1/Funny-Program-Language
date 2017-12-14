@@ -2,7 +2,7 @@
  * @Author: wusz 
  * @Date: 2017-12-13 17:35:26 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-13 18:47:44
+ * @Last Modified time: 2017-12-14 14:16:39
  */
 
  /*! 回文字符串 */
@@ -105,3 +105,152 @@
  const unique = arr => {
    return arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
  }
+
+ /*! 扁平化数组 */
+ // flatten([1, 2, [3, [4, 5]], 6]) -> [ 1, 2, 3, [ 4, 5 ], 6 ]
+ const flatten = arr => {
+   return arr.reduce((a, v) => a.concat(v), []);
+ }
+
+ /*! 获取数组中最大值 */
+ // arrayMax([10, 2, 3]) -> 10
+ const arrayMax = arr => {
+   return Math.max(...arr);
+ }
+
+ /*! 获取数组中最小值 */
+ // arrayMin([10, 2, 3]) -> 2
+ const arrayMin = arr => {
+  return Math.min(...arr);
+}
+
+/*! 最大公约数 */
+// gcd(8, 36) -> 4
+const gcd = (x, y) => {
+  return !y ? x : gcd(y, x % y);
+}
+
+/*! 首元素 */
+// head([1, 3, 2]) -> 1
+const head = arr => arr[0];
+
+/*! 范围数值数组(左闭右开) */
+// arrayRange(9, 3) -> [ 3, 4, 5, 6, 7, 8 ]
+const arrayRange = (end, start = 0) => {
+  return Array.apply(null, Array(end-start)).map((v, i) => i + start);
+}
+
+/*! 使用指定值初始化数组 */
+// initializeArray(5, 2) -> [ 2, 2, 2, 2, 2 ]
+const initializeArray = (n, value = 0) => {
+  return Array(n).fill(value);
+}
+
+/*! 取数组最后一值 */ 
+// last([1, 2, 3]) -> 3
+const last = arr => arr.slice(-1)[0];
+
+/*! 测量方法使用的时间 */
+// 待测试
+const timeTaken = (func, ...args) => {
+  var t0 = performance.now(), r = func(...args);
+  console.log(performance.now() - t0);
+  return r;
+}
+
+/*! 键值对转化为Object */
+// objectFromPairs([['a', 1], ['b', 1]]) -> { a: 1, b: 1 }
+const objectFromPairs = arr => {
+  return arr.reduce((a, v) => (a[v[0]] = v[1], a), {})
+}
+
+/*! 管 */
+// pipe(x => x.toUpperCase(), x => x.toLowerCase())('Test') -> test
+const pipe = (...funcs) => arg => {
+  return funcs.reduce((acc, func) => func(acc), arg);
+}
+
+/*! 子集 */
+// powerset([1, 2]) -> [ [], [ 1 ], [ 2 ], [ 2, 1 ] ]
+const powerset = arr => {
+  return arr.reduce((a, v) => a.concat(a.map(r => [v].concat(r))), [[]]);
+} 
+
+/*! 指定范围内的随机整数 */
+// randomIntegerInRange(3, 7) -> 7
+const randomIntegerInRange = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/*! 指定范围内的随机数 */
+// randomInRange(3, 7) -> 4.68445424024879
+const randomInRange = (min, max) => {
+  return Math.random() * (max - min) + min;
+}
+
+/*! 随机排列数组 */
+// randomizeOrder([1, 3, 5, 11, 4]) -> [ 11, 3, 1, 5, 4 ]
+const randomizeOrder = arr => {
+  return arr.sort((a, b) => Math.random() >=0.5 ? -1 : 1);
+}
+
+/*! 重定向 */ 
+const redirect = (url, asLink = true) => {
+  return asLink ? window.location.href = url : window.location.replace(url);
+}
+
+/*! 翻转字符串 */
+// reverseString('foobar') -> raboof
+const reverseString = str => [...str].reverse().join('');
+
+/*!  RGB => Hex */
+const rgbToHex = (r, g, b) => {
+  return ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
+}
+
+/*! 不同数组的交集 */
+// similarity([1, 2, 3], [1, 2, 4]) -> [ 1, 2 ]
+const similarity = (arr, values) => {
+  return arr.filter(v => values.includes(v));
+}
+
+/*! 字符串字母排序 */
+// sortCharactersInString('cabbage') -> aabbceg
+const sortCharactersInString = str => {
+  return str.split('').sort((a, b) => a.localeCompare(b)).join('');
+}
+
+/*! 数组和 */
+const sum = arr => arr.reduce((acc, val) => acc + val, 0);
+
+/*! 交换数值swap */
+// [x, y] = [y, x];
+
+/*! 去重 */
+// uniqueValues([1, 2, 2, 3, 3, 4, 4, 5]) -> [ 1, 2, 3, 4, 5 ]
+const uniqueValues = arr => {
+  return [...new Set(arr)];
+}
+
+/*! URL参数 */
+const getUrlParameters = url => {
+  return url.match(/([^?=&]+)(=([^&]*))/g).reduce(
+    (a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {}
+  );
+}
+
+/*! UUID */
+// crypto is not defined
+const uuid = _ => {
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
+/*! 有效的数字 */
+// validateNumber('10') -> true
+const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n);
+
+/*! 默认值 */
+// valueOrDefault(NaN, 30) -> 30
+const valueOrDefault = (value, d) => value || d;
