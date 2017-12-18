@@ -10,6 +10,7 @@ var Global = cc.Class({
         isPinging:false,
         fnDisconnect:null,
         handlers:{},
+
         addHandler:function(event,fn){
             if(this.handlers[event]){
                 console.log("event:" + event + "' handler has been registered.");
@@ -30,6 +31,7 @@ var Global = cc.Class({
                 this.sio.on(event,handler);
             }
         },
+        
         connect:function(fnConnect,fnError) {
             var self = this;
             
@@ -102,6 +104,7 @@ var Global = cc.Class({
                 }.bind(this),500);
             }   
         },
+
         send:function(event,data){
             if(this.sio.connected){
                 if(data != null && (typeof(data) == "object")){

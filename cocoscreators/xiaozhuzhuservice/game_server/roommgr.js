@@ -31,12 +31,9 @@ function constructRoomFromDb(dbdata){
 	};
 
 
-	if(roomInfo.conf.type == "xlch"){
-		roomInfo.gameMgr = require("./gamemgr_xlch");
-	}
-	else{
-		roomInfo.gameMgr = require("./gamemgr_taojiang");
-	}
+
+	roomInfo.gameMgr = require("./gamemgr_taojiang");
+	
 	var roomId = roomInfo.id;
 
 	for(var i = 0; i < 4; ++i){

@@ -4,7 +4,7 @@ import { YEAR } from "mysql/lib/protocol/constants/types";
  * @Author: wusz 
  * @Date: 2017-12-12 15:30:11 
  * @Last Modified by: wusz
- * @Last Modified time: 2017-12-13 14:13:48
+ * @Last Modified time: 2017-12-18 15:24:44
  */
 
 var roomMgr = require("./roommgr");
@@ -1387,6 +1387,43 @@ exports.begin = function(roomId) {
         //通知游戏开始
         userMgr.sendMsg(s.userId,'game_begin_push',game.button);
     }
+
+    // 庄家摸牌
+    construct_game_base_info(game);
+    var arr = [1,1,1,1];
+    for(var i = 0; i < game.gameSeats.length; ++i){
+        arr[i] = game.gameSeats[i].que;
+    }
+    userMgr.broacastInRoom('game_dingque_finish_push',arr,seatData.userId,true);
+    userMgr.broacastInRoom('game_playing_push',null,seatData.userId,true);
+
+    //进行听牌检查
+    for(var i = 0; i < game.gameSeats.length; ++i){
+        var duoyu = -1;
+        var gs = game.gameSeats[i];
+        if(gs.holds.length == 14){
+            duoyu = gs.holds.pop();
+            gs.countMap[duoyu] -= 1;
+        }
+        checkCanTingPai(game,gs);
+        if(duoyu >= 0){
+            gs.holds.push(duoyu);
+            gs.countMap[duoyu] ++;
+        }
+    }
+    
+    var turnSeat = game.gameSeats[game.turn];
+    game.state = "playing";
+    //通知玩家出牌方
+    turnSeat.canChuPai = true;
+    userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
+    //检查是否可以暗杠或者胡
+    //直杠
+    checkCanAnGang(game,turnSeat);
+    //检查胡 用最后一张来检查
+    checkCanHu(game,turnSeat,turnSeat.holds[turnSeat.holds.length - 1]);
+    //通知前端
+    sendOperations(game,turnSeat,game.chuPai);
 };
 
 /*! 出牌 */
